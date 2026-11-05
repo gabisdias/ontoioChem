@@ -1,4 +1,4 @@
-# OntoIochem
+# Ontoiochem
 
 A minimum viable ontology for the semantic layer of [ioChem-BD](https://www.iochem-bd.org/), together with the mapping workbook, concept map and scripts used to build it. The ontology provides a common vocabulary for describing computational chemistry data (composition, methodology, computed quantities, publication metadata) so that calculations can be found by scientific questions.
 
