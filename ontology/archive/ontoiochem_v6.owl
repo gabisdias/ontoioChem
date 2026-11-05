@@ -1,0 +1,2245 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns1="http://purl.org/iochem/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <rdf:Description rdf:about="http://purl.org/iochem/ontoiochem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="http://purl.org/iochem/ontoiochem.owl"/>
+    <dc:created>2026-10-07</dc:created>
+    <dc:description>OntoIochem is an ontology designed to provide a semantic layer for the ioChem-BD platform and to support the consistent representation, discovery, and interoperability of computational chemistry data. Its development builds upon existing semantic resources, including the Gainesville ontology, which provided an important foundation for the representation of computational chemistry concepts and terminology. OntoIochem describes four main conceptual areas: the Molecular Concept, representing molecular structures and the properties that characterize them; the Calculation Concept, representing computational methodologies, software tools, calculation metadata, and derived results; the Publication Concept, representing information associated with scientific publications and research outputs, including data collections and manuscripts; and auxiliary concepts, such as units of measurement and values, which support the precise and machine-readable representation of scientific information. OntoIochem is designed to align with established computational chemistry ontologies and commonly used scientific terminologies, promoting semantic interoperability, reuse, and integration with existing resources and scientific data ecosystems.</dc:description>
+    <ns1:canonicalUnitPolicy xml:lang="en">Numerical values represented by OntoIochem use canonical SI units. Source-program units are normalized during ingestion; SPARQL queries therefore operate on SI values without requiring unit conversion.</ns1:canonicalUnitPolicy>
+    <rdfs:comment>An ontology for publishing results of computational chemistry in ioChem-BD</rdfs:comment>
+    <rdfs:comment xml:lang="en">OntoIochem uses SI units as canonical units for numerical values. Values from computational chemistry programs are normalized during ingestion so that SPARQL queries operate on a consistent unit system.</rdfs:comment>
+    <rdfs:label>OntoIochem Core Ontology</rdfs:label>
+    <owl:versionInfo>0.5.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/canonicalUnitPolicy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/created">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/description">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/elementName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+<rdf:Description rdf:about="http://creativecommons.org/ns#license">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/meaning">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:comment xml:lang="en">Meaning of the entity in the ioChem-BD semantic layer.</rdfs:comment>
+    <rdfs:label xml:lang="en">Meaning</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/AuxiliaryConcept">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">A generic class representing Auxiliary concepts.</rdfs:comment>
+    <rdfs:label xml:lang="en">AuxiliaryConcept</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/ChemistryUnity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/AuxiliaryConcept"/>
+    <rdfs:label xml:lang="en">ChemistryUnit</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/EnergyAndWorkUnity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/AuxiliaryConcept"/>
+    <rdfs:label xml:lang="en">EnergyAndWorkUnit</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/FreqUnity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/AuxiliaryConcept"/>
+    <rdfs:label xml:lang="en">FreqUnit</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/CalculationConcept">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">A class for generic concepts that describe calculations in computational chemistry.</rdfs:comment>
+    <rdfs:label xml:lang="en">CalculationConcept</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/CalculationResults">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/CalculationConcept"/>
+    <rdfs:label xml:lang="en">CalculationResults</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/CalculatedProperties">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/CalculationResults"/>
+    <rdfs:comment xml:lang="en">A class for the properties of calculated in the course of computational chemistry procedure.</rdfs:comment>
+    <rdfs:label xml:lang="en">CalculatedProperties</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/AtomicProperties">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/CalculatedProperties"/>
+    <rdfs:label xml:lang="en">AtomicProperties</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Mulliken">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/AtomicProperties"/>
+    <ns1:meaning xml:lang="en">Mulliken population analysis results</ns1:meaning>
+    <rdfs:label xml:lang="en">Mulliken</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/CalculatedSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/CalculatedProperties"/>
+    <rdfs:label xml:lang="en">CalculatedSystem</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Dipole">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/CalculatedSystem"/>
+    <rdfs:subClassOf rdf:nodeID="Nc40759366f414c80b5d0b4e4f86cda1a"/>
+    <ns1:meaning xml:lang="en">Dipole</ns1:meaning>
+    <rdfs:label xml:lang="en">Dipole</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Polarizability">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/CalculatedSystem"/>
+    <rdfs:subClassOf rdf:nodeID="Nc28df61e8b724361a075a270aae98978"/>
+    <ns1:meaning xml:lang="en">Static polarizability</ns1:meaning>
+    <rdfs:label xml:lang="en">Polarizability</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/CalculatedSystemProperties">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/CalculationResults"/>
+    <rdfs:comment xml:lang="en">A class for the properties of molecular system calculated in the course of computational chemistry procedure.</rdfs:comment>
+    <rdfs:label xml:lang="en">CalculatedSystemProperties</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/ConvergenceStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/CalculatedSystemProperties"/>
+    <ns1:meaning xml:lang="en">Convergence status of the calculation</ns1:meaning>
+    <rdfs:label xml:lang="en">ConvergenceStatus</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/SystemEnergies">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/CalculationResults"/>
+    <rdfs:comment xml:lang="en">A class for various types of energies associated with molecular system.</rdfs:comment>
+    <rdfs:label xml:lang="en">SystemEnergies</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/BondingEnergy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:subClassOf rdf:nodeID="N146c439a181f4324a9d4db96a2eb9b6b"/>
+    <ns1:meaning xml:lang="en">Formation energy</ns1:meaning>
+    <rdfs:label xml:lang="en">BondingEnergy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/DispersionEnergy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:subClassOf rdf:nodeID="N5b3e6650c93b4108ad2a46209962417b"/>
+    <ns1:meaning xml:lang="en">Dispersion energy</ns1:meaning>
+    <rdfs:label xml:lang="en">DispersionEnergy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/ElectronicEnergy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:subClassOf rdf:nodeID="N59105104533548268d23aeb37ba1d6a4"/>
+    <ns1:meaning xml:lang="en">Eelec= electronic energy obtained from the quantum-chemical calculation, including the electronic energy + nuclear repulsion according to the convention of the method</ns1:meaning>
+    <rdfs:comment xml:lang="en">A class for the total energy of electrons in the Born-Oppenheimer approx of Schroedinger equation.</rdfs:comment>
+    <rdfs:label xml:lang="en">ElectronicEnergy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/FreeEnergy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:subClassOf rdf:nodeID="N6d93f7da99c848c8add588bc04ae4ebb"/>
+    <ns1:meaning xml:lang="en">Sum of electronic and thermal free energies</ns1:meaning>
+    <rdfs:label xml:lang="en">FreeEnergy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/HOMO">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:subClassOf rdf:nodeID="N8354aef23e40448d90ac8844a73f6c99"/>
+    <ns1:meaning xml:lang="en">Occupied molecular orbitals</ns1:meaning>
+    <rdfs:label xml:lang="en">HOMO</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/LUMO">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:subClassOf rdf:nodeID="Na80838a966d94081b13e23d87fd0fcdc"/>
+    <ns1:meaning xml:lang="en">Unoccupied molecular orbitals</ns1:meaning>
+    <rdfs:label xml:lang="en">LUMO</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/ThermalEnergy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:subClassOf rdf:nodeID="N7bb5a103846c4d0ab4c43fcdd3f7757b"/>
+    <ns1:meaning xml:lang="en">Sum of electronic and thermal energies (U= Etrans+Erot+Evib+Eelec)</ns1:meaning>
+    <rdfs:label xml:lang="en">ThermalEnergy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/ThermalEntalpy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:subClassOf rdf:nodeID="Na29182b2c46340f495c72f33564fa1bb"/>
+    <ns1:meaning xml:lang="en">Sum of electronic and thermal enthalpies (G=H−TS)</ns1:meaning>
+    <rdfs:label xml:lang="en">ThermalEntalpy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/TotalEntropy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:subClassOf rdf:nodeID="Nb8f5a2a831c64fdea3eefe7df2602acd"/>
+    <ns1:meaning xml:lang="en">Total entropy</ns1:meaning>
+    <rdfs:label xml:lang="en">TotalEntropy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/ZPEenergy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:subClassOf rdf:nodeID="N9cf86f98c3564a52b37e36eb514e452e"/>
+    <ns1:meaning xml:lang="en">Sum of electronic and zero-point energies (E0=Eelec+EZPE)</ns1:meaning>
+    <rdfs:label xml:lang="en">ZPEenergy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/MetodologyFeature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/CalculationConcept"/>
+    <rdfs:label xml:lang="en">MetodologyFeature</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/BasisSet">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/MetodologyFeature"/>
+    <ns1:meaning xml:lang="en">Basis set used in the calculation</ns1:meaning>
+    <rdfs:comment xml:lang="en">A class for the basis set. In computational chemistry basis set is a set of functions which are combined to create molecular orbitals.</rdfs:comment>
+    <rdfs:label xml:lang="en">BasisSet</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/DensityFunctional">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/MetodologyFeature"/>
+    <ns1:meaning xml:lang="en">Computational method (functional)</ns1:meaning>
+    <rdfs:comment xml:lang="en">A class for all density functionals in Density Functional Theories.</rdfs:comment>
+    <rdfs:label xml:lang="en">DensityFunctional</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/ParameterSet">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/MetodologyFeature"/>
+    <rdfs:comment xml:lang="en">A class representing a specific set of parameters used by the Force Field calculations (Molecular Mechanics).</rdfs:comment>
+    <rdfs:label xml:lang="en">ParameterSet</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Keywords">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/ParameterSet"/>
+    <ns1:meaning xml:lang="en">Keyword</ns1:meaning>
+    <rdfs:label xml:lang="en">Keywords</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Program">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/MetodologyFeature"/>
+    <ns1:meaning xml:lang="en">Computational chemistry program name</ns1:meaning>
+    <rdfs:label xml:lang="en">Program</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/ontoiochem#ProgramName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/Program"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/ontoiochem#ADF">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/ontoiochem#ProgramName"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/ontoiochem#Gaussian">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/ontoiochem#ProgramName"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/ontoiochem#Orca">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/ontoiochem#ProgramName"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/ProgramVersion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/Program"/>
+    <ns1:meaning xml:lang="en">Program version</ns1:meaning>
+    <rdfs:label xml:lang="en">ProgramVersion</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/MolecularConcept">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">A generic class of various concepts related to molecular systems.</rdfs:comment>
+    <rdfs:label xml:lang="en">MolecularConcept</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.daml.org/2003/01/periodictable/PeriodicTable#Element">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/MolecularConcept"/>
+    <rdfs:label xml:lang="en">Element</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/AtomicMass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.daml.org/2003/01/periodictable/PeriodicTable#Element"/>
+    <rdfs:subClassOf rdf:nodeID="N9b667f7896ea4d0eafca8b45ffab8d03"/>
+    <ns1:meaning xml:lang="en">Atomic mass of the element</ns1:meaning>
+    <rdfs:comment xml:lang="en">A class for AtomicMass.</rdfs:comment>
+    <rdfs:label xml:lang="en">AtomicMass</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/AtomicNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.daml.org/2003/01/periodictable/PeriodicTable#Element"/>
+    <ns1:meaning xml:lang="en">Atomic number of the element</ns1:meaning>
+    <rdfs:label xml:lang="en">AtomicNumber</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/MolarMass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.daml.org/2003/01/periodictable/PeriodicTable#Element"/>
+    <rdfs:subClassOf rdf:nodeID="Na123e68ed2c147e992b44bff9f95b1da"/>
+    <ns1:meaning xml:lang="en">Molar mass of the element</ns1:meaning>
+    <rdfs:label xml:lang="en">MolarMass</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/MolecularStructureObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/MolecularConcept"/>
+    <rdfs:comment xml:lang="en">A class that represents objects of molecular structure (atoms, molecules etc).</rdfs:comment>
+    <rdfs:label xml:lang="en">MolecularStructureObject</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/Atom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/MolecularStructureObject"/>
+    <rdfs:comment xml:lang="en">A class for Atom.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A class for atoms, the basic unit of matter.</rdfs:comment>
+    <rdfs:label xml:lang="en">Atom</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/MolecularSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/MolecularStructureObject"/>
+    <rdfs:comment xml:lang="en">A class for MolecularSystem.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A class for objects related to molecular systems.</rdfs:comment>
+    <rdfs:label xml:lang="en">MolecularSystem</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/MolecularDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/MolecularSystem"/>
+    <rdfs:label xml:lang="en">MolecularDescription</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/ElementType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/MolecularDescription"/>
+    <ns1:meaning xml:lang="en">Atomic element type</ns1:meaning>
+    <rdfs:label xml:lang="en">ElementType</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/Molecule">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/MolecularConcept"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/MolecularStructureObject"/>
+    <rdfs:comment xml:lang="en">A class for Molecule.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A class for molecule - electrically neutral group (or polyatomic ion) of two or more atoms held together by chemical bonds.</rdfs:comment>
+    <rdfs:label xml:lang="en">Molecule</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/AtomCount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/Molecule"/>
+    <ns1:meaning xml:lang="en">Total number of atoms</ns1:meaning>
+    <rdfs:label xml:lang="en">AtomCount</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/ChargeSum">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/Molecule"/>
+    <rdfs:subClassOf rdf:nodeID="Ncdc7d2dc673544c08ef5ac355303b02e"/>
+    <ns1:meaning xml:lang="en">Chargesum</ns1:meaning>
+    <rdfs:label xml:lang="en">ChargeSum</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Coordinates">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/Molecule"/>
+    <rdfs:subClassOf rdf:nodeID="N50f9aadbdbb84b9a98701131eaea14f6"/>
+    <ns1:meaning xml:lang="en">Coords</ns1:meaning>
+    <rdfs:label xml:lang="en">Coordinates</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/MolecularMass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/Molecule"/>
+    <rdfs:subClassOf rdf:nodeID="N045afcb0853844408166efb91a8b6870"/>
+    <ns1:meaning xml:lang="en">Molecular mass</ns1:meaning>
+    <rdfs:label xml:lang="en">MolecularMass</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Smiles">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/Molecule"/>
+    <ns1:meaning xml:lang="en">smiles</ns1:meaning>
+    <rdfs:label xml:lang="en">Smiles</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Stoichiometry">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/Molecule"/>
+    <ns1:meaning xml:lang="en">Molecular stoichiometry</ns1:meaning>
+    <rdfs:label xml:lang="en">Stoichiometry</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/PublicationConcept">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">A generic class representing concepts related to publications.</rdfs:comment>
+    <rdfs:label xml:lang="en">PublicationConcept</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Authors">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/PublicationConcept"/>
+    <ns1:meaning xml:lang="en">Authors</ns1:meaning>
+    <rdfs:label xml:lang="en">Authors</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Institution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/PublicationConcept"/>
+    <ns1:meaning xml:lang="en">Institution</ns1:meaning>
+    <rdfs:label xml:lang="en">Institution</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/Publication">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/PublicationConcept"/>
+    <rdfs:comment xml:lang="en">A generic class for objects related to the publication of results of computational chemistry calculations.</rdfs:comment>
+    <rdfs:label xml:lang="en">Publication</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/CompChem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/Publication"/>
+    <rdfs:label xml:lang="en">CompChem</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Article">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/CompChem"/>
+    <ns1:meaning xml:lang="en">article</ns1:meaning>
+    <rdfs:label xml:lang="en">Article</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Journal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/Article"/>
+    <ns1:meaning xml:lang="en">Journal</ns1:meaning>
+    <rdfs:label xml:lang="en">Journal</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Data">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/CompChem"/>
+    <rdfs:label xml:lang="en">Data</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Collection">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/Data"/>
+    <ns1:meaning xml:lang="en">Collection</ns1:meaning>
+    <rdfs:label xml:lang="en">Collection</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Item">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/Collection"/>
+    <ns1:meaning xml:lang="en">Item</ns1:meaning>
+    <rdfs:label xml:lang="en">Item</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Subjects">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/Collection"/>
+    <ns1:meaning xml:lang="en">subjects</ns1:meaning>
+    <rdfs:label xml:lang="en">Subjects</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/URI">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/iochem/Collection"/>
+    <ns1:meaning xml:lang="en">URI</ns1:meaning>
+    <rdfs:label xml:lang="en">URI</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/IssueDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/gc/Publication"/>
+    <ns1:meaning xml:lang="en">Issue Date</ns1:meaning>
+    <rdfs:label xml:lang="en">IssueDate</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/calculationDescribesMolecularSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/iochem/describesMolecularSystem"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/CalculationConcept"/>
+    <rdfs:range rdf:resource="http://purl.org/gc/MolecularSystem"/>
+    <owl:propertyChainAxiom rdf:nodeID="N7f5eae41d8ea4b4c8f3d0c21e6bf0c5e"/>
+    <rdfs:label>calculation describes molecular system</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/describesMolecularSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>describes molecular system</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasArticle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/Publication"/>
+    <rdfs:range rdf:resource="http://purl.org/iochem/Article"/>
+    <rdfs:comment>Links a publication to an article.</rdfs:comment>
+    <rdfs:label>has article</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasAtom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/iochem/hasPart"/>
+    <owl:inverseOf rdf:resource="http://purl.org/iochem/isAtomOf"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/Molecule"/>
+    <rdfs:range rdf:resource="http://purl.org/gc/Atom"/>
+    <rdfs:comment>Links a molecule to one of its atoms.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Links a molecule to one of its atoms.</rdfs:comment>
+    <rdfs:label>has atom</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasAtomicProperties">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/CalculationResults"/>
+    <rdfs:range rdf:resource="http://purl.org/iochem/AtomicProperties"/>
+    <rdfs:comment>Links results to atomic properties.</rdfs:comment>
+    <rdfs:label>has atomic properties</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasAuthor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/Publication"/>
+    <rdfs:range rdf:resource="http://purl.org/iochem/Authors"/>
+    <rdfs:comment>Links a publication to its authors.</rdfs:comment>
+    <rdfs:label>has author</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasCalculatedProperty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/CalculationResults"/>
+    <rdfs:comment>Links calculation results to a calculated property.</rdfs:comment>
+    <rdfs:label>has calculated property</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasCalculatedSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://purl.org/iochem/CalculatedSystem"/>
+    <rdfs:comment>Links calculated properties to the calculated system.</rdfs:comment>
+    <rdfs:label>has calculated system</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasCalculationEnergy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/CalculationConcept"/>
+    <rdfs:range rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <owl:propertyChainAxiom rdf:nodeID="Naf077f136af54dcb9730d7ac6695a4ce"/>
+    <rdfs:label>has calculation energy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasCalculationResult">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="http://purl.org/iochem/isCalculationResultOf"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/CalculationConcept"/>
+    <rdfs:range rdf:resource="http://purl.org/iochem/CalculationResults"/>
+    <owl:propertyDisjointWith rdf:resource="http://purl.org/iochem/hasMolecule"/>
+    <rdfs:comment>Links a calculation to its calculated results.</rdfs:comment>
+    <rdfs:label>has calculation result</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasCollection">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/Data"/>
+    <rdfs:range rdf:resource="http://purl.org/iochem/Collection"/>
+    <rdfs:comment>Links computational chemistry data to a collection.</rdfs:comment>
+    <rdfs:label>has collection</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasElectronicProperties">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/CalculationResults"/>
+    <rdfs:comment>Links results to electronic properties.</rdfs:comment>
+    <rdfs:label>has electronic properties</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasInstitution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/Publication"/>
+    <rdfs:range rdf:resource="http://purl.org/iochem/Institution"/>
+    <rdfs:comment>Links a publication to an institution.</rdfs:comment>
+    <rdfs:label>has institution</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/Collection"/>
+    <rdfs:range rdf:resource="http://purl.org/iochem/Item"/>
+    <rdfs:comment>Links a collection to an item.</rdfs:comment>
+    <rdfs:label>has item</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasJournal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/Article"/>
+    <rdfs:range rdf:resource="http://purl.org/iochem/Journal"/>
+    <rdfs:comment>Links an article to its journal.</rdfs:comment>
+    <rdfs:label>has journal</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasMolecularDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/MolecularSystem"/>
+    <rdfs:range rdf:resource="http://purl.org/iochem/MolecularDescription"/>
+    <rdfs:comment>Links a molecular system to its molecular description.</rdfs:comment>
+    <rdfs:label>has molecular description</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasMolecularSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/CalculationConcept"/>
+    <rdfs:range rdf:resource="http://purl.org/gc/MolecularSystem"/>
+    <rdfs:comment>Links a calculation to its molecular system.</rdfs:comment>
+    <rdfs:label>has molecular system</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasMolecule">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <owl:inverseOf rdf:resource="http://purl.org/iochem/isMoleculeOf"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/CalculationConcept"/>
+    <rdfs:range rdf:resource="http://purl.org/gc/Molecule"/>
+    <rdfs:comment xml:lang="en">Links a calculation to the molecular structure used in the calculation.</rdfs:comment>
+    <rdfs:comment>Links a calculation to the molecular system represented by a molecule.</rdfs:comment>
+    <rdfs:label>has molecule</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasParameterSet">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/iochem/usesMethod"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/CalculationConcept"/>
+    <rdfs:range rdf:resource="http://purl.org/gc/ParameterSet"/>
+    <rdfs:comment>Links a calculation to its parameter set.</rdfs:comment>
+    <rdfs:label>has parameter set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasPart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <owl:inverseOf rdf:resource="http://purl.org/iochem/partOf"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/MolecularStructureObject"/>
+    <rdfs:range rdf:resource="http://purl.org/gc/MolecularStructureObject"/>
+    <rdfs:comment>Inverse of partOf; links a molecular structure object to its structural parts.</rdfs:comment>
+    <rdfs:label>has part</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasPublication">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/Data"/>
+    <rdfs:range rdf:resource="http://purl.org/gc/Publication"/>
+    <rdfs:comment>Links computational chemistry data to its publication.</rdfs:comment>
+    <rdfs:label>has publication</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasResult">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has result</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/hasSystemEnergy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/CalculationResults"/>
+    <rdfs:range rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:comment>Links calculation results to a system energy.</rdfs:comment>
+    <rdfs:label>has system energy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/isAtomOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/Atom"/>
+    <rdfs:range rdf:resource="http://purl.org/gc/Molecule"/>
+    <rdfs:comment xml:lang="en">Inverse relation of hasAtom.</rdfs:comment>
+    <rdfs:label>is atom of</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/isCalculationResultOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/CalculationResults"/>
+    <rdfs:range rdf:resource="http://purl.org/gc/CalculationConcept"/>
+    <rdfs:comment>Links calculation results to the calculation that produced them.</rdfs:comment>
+    <rdfs:label>is calculation result of</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/isMoleculeOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/Molecule"/>
+    <rdfs:range rdf:resource="http://purl.org/gc/CalculationConcept"/>
+    <rdfs:comment xml:lang="en">Inverse relation of hasMolecule.</rdfs:comment>
+    <rdfs:comment>Links a molecule to the calculation in which it is used.</rdfs:comment>
+    <rdfs:label>is molecule of</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/isProgramOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="http://purl.org/iochem/usesProgram"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/Program"/>
+    <rdfs:range rdf:resource="http://purl.org/gc/CalculationConcept"/>
+    <rdfs:comment>Links a program to calculations that use it.</rdfs:comment>
+    <rdfs:label>is program of</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/partOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/MolecularStructureObject"/>
+    <rdfs:range rdf:resource="http://purl.org/gc/MolecularStructureObject"/>
+    <rdfs:comment>Indicates that a molecular structure object is a structural part of another object.</rdfs:comment>
+    <rdfs:label>part of</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/unit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment xml:lang="en">Canonical SI unit associated with a numerical value in OntoIochem.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Unit associated with the numerical value of a calculated result.</rdfs:comment>
+    <rdfs:label>unit</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/usesBasisSet">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/iochem/usesMethod"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/CalculationConcept"/>
+    <rdfs:range rdf:resource="http://purl.org/gc/BasisSet"/>
+    <owl:propertyDisjointWith rdf:resource="http://purl.org/iochem/usesProgram"/>
+    <rdfs:comment>Links a calculation to the basis set used.</rdfs:comment>
+    <rdfs:label>uses basis set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/usesDensityFunctional">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/iochem/usesMethod"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/CalculationConcept"/>
+    <rdfs:range rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment>Links a calculation to the density functional used.</rdfs:comment>
+    <rdfs:label>uses density functional</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/usesMethod">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/CalculationConcept"/>
+    <rdfs:range rdf:resource="http://purl.org/iochem/MetodologyFeature"/>
+    <rdfs:comment>Links a calculation to its methodology features.</rdfs:comment>
+    <rdfs:label>uses method</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/usesProgram">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/iochem/usesMethod"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/CalculationConcept"/>
+    <rdfs:range rdf:resource="http://purl.org/iochem/Program"/>
+    <rdfs:comment>Links a calculation to the computational chemistry program used.</rdfs:comment>
+    <rdfs:label>uses program</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/articleIdentifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/Article"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>article identifier</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/atomCount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/Molecule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:label>atom count</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/atomIndex">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/Atom"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment xml:lang="en">Index identifying the atom within the molecular structure.</rdfs:comment>
+    <rdfs:label>atom index</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/atomicMass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.daml.org/2003/01/periodictable/PeriodicTable#Element"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>atomic mass</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/atomicNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.daml.org/2003/01/periodictable/PeriodicTable#Element"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:label>atomic number</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/authorName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/Authors"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>author name</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/basisSetName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>basis set name</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/bondingEnergy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>bonding energy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/chargeSum">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/Molecule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>charge sum</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/convergenceStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/CalculatedSystem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>convergence status</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/coordinates">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/Molecule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>coordinates</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/densityFunctionalName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>density functional name</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/dipole">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/CalculatedSystem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>dipole</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/dispersionEnergy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>dispersion energy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/electronicEnergy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>electronic energy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/elementType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/MolecularDescription"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>element type</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/freeEnergy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>free energy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/homo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>homo</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/institutionName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/Institution"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>institution name</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/isotopeMass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>isotope mass</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/issueDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/Publication"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:label>issue date</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/journalName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/Journal"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>journal name</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/keywords">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/ParameterSet"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>keywords</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/kineticEnergy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>kinetic energy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/lumo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>lumo</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/molarMass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.daml.org/2003/01/periodictable/PeriodicTable#Element"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>molar mass</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/molecularMass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/Molecule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>molecular mass</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/mulliken">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/AtomicProperties"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>mulliken</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/polarizability">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>polarizability</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/potentialEnergy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>potential energy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/programVersion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/Program"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>program version</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/smiles">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/Molecule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>smiles</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/stoichiometry">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/Molecule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>stoichiometry</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/subjects">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/Subjects"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>subjects</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/thermalEnergy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>thermal energy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/thermalEnthalpy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>thermal enthalpy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/totalEntropy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>total entropy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/uri">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/iochem/URI"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>uri</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/value">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:comment xml:lang="en">Numerical value of a calculated result.</rdfs:comment>
+    <rdfs:label>value</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/zpeCorrection">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>zpe correction</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/zpeEnergy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://purl.org/gc/SystemEnergies"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label>zpe energy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/3-21pG">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Pople split valence 3-21+G basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">3-21+G Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/3-21pGS">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Pople split valence 3-21+G* basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">3-21+G* Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/3-21G">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Pople split valence 3-21G basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">3-21G Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/3-21GS">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Pople polarization split valence 3-21G* basis set.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A class for the Pople split valence 3-21G* basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">3-21G* Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/4-31G">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Pople split valence 4-31G basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">4-31G Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/6-31pGS">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Pople polarization split valence 6-31+G* basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">6-31+G* Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/6-311pGS">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Pople split valence 6-311+G* basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">6-311+G* Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/6-311G">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Pople split valence 6-311G basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">6-311G Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/6-311GS">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Pople split valence 6-311G* basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">6-311G* Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/6-31G">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Pople split valence 6-31G basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">6-31G Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/6-31GS">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Pople polarization split valence 6-31G* basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">6-31G* Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/6-31GSS">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Pople polarization split valence 6-31G** basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">6-31G** Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/aug-cc-pV_DPD_Z">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the aug-cc-pV(D+d)Z Correlation Consistent Double Zeta basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">aug-cc-pV(D+d)Z Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/aug-cc-pV5Z">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the aug-cc-pV5Z Correlation Consistent Quintuple Zeta basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">aug-cc-pV5Z Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/aug-cc-pVDZ">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the aug-cc-pVDZ Correlation Consistent Double Zeta basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">aug-cc-pVDZ Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/aug-cc-pVQZ">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the aug-cc-pVQZ Correlation Consistent Quadruple Zeta basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">aug-cc-pVQZ Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/aug-cc-pVTZ">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the aug-cc-pVTZ Correlation Consistent Triple Zeta basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">aug-cc-pVTZ Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/cc-pV5Z">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the cc-pV5Z Correlation Consistent Quintuple Zeta basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">cc-pV5Z Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/cc-pVDZ">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the cc-pVDZ Correlation Consistent Double Zeta basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">cc-pVDZ Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/cc-pVQZ">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the cc-pVQZ Correlation Consistent Quadruple Zeta basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">cc-pVQZ Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/cc-pVTZ">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the cc-pVTZ Correlation Consistent Triple Zeta basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">cc-pVTZ Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/d-aug-cc-pVDZ">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the d-aug-cc-pVDZ Correlation Consistent Double Zeta basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">d-aug-cc-pVDZ Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/DZ">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Dunning DZ double zeta basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">DZ Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/jun-cc-pVDZ">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the jun-cc-pVDZ Correlation Consistent Double Zeta basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">jun-cc-pVDZ Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/STO-2G">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Pople minimal STO-2G basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">STO-2G Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/STO-3G">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Pople minimal STO-3G basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">STO-3G Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/STO-3GS">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Pople minimal STO-3G basis set with polarization functions.</rdfs:comment>
+    <rdfs:label xml:lang="en">STO-3G* Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/STO-4G">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Pople minimal STO-4G basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">STO-4G Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/STO-5G">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Pople minimal STO-5G basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">STO-5G Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/STO-6G">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Pople minimal STO-6G basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">STO-6G Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/TZ">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the Dunning TZ triple zeta basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">TZ Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/VDZ">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the ahlrichs VDZ double zeta basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">VDZ Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/VTZ">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/BasisSet"/>
+    <rdfs:comment xml:lang="en">A class for the ahlrichs VDZ double zeta basis set.</rdfs:comment>
+    <rdfs:label xml:lang="en">VTZ Basis Set</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Coulomb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ChemistryUnity"/>
+    <rdfs:comment xml:lang="en">SI derived unit of electric charge.</rdfs:comment>
+    <rdfs:label xml:lang="en">coulomb</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/CoulombMeter">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ChemistryUnity"/>
+    <rdfs:comment xml:lang="en">SI derived unit of electric dipole moment.</rdfs:comment>
+    <rdfs:label xml:lang="en">coulomb meter</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/CoulombSquareMeterPerVolt">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ChemistryUnity"/>
+    <rdfs:comment xml:lang="en">SI derived unit for electric polarizability.</rdfs:comment>
+    <rdfs:label xml:lang="en">coulomb square meter per volt</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/KilogramPerMole">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ChemistryUnity"/>
+    <rdfs:comment xml:lang="en">SI derived unit for molar mass.</rdfs:comment>
+    <rdfs:label xml:lang="en">gram per mole</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/JoulePerKelvin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ChemistryUnity"/>
+    <rdfs:comment xml:lang="en">SI derived unit for entropy.</rdfs:comment>
+    <rdfs:label xml:lang="en">joule per kelvin</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Kilogram">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ChemistryUnity"/>
+    <rdfs:comment xml:lang="en">SI base unit of mass.</rdfs:comment>
+    <rdfs:label xml:lang="en">kilogram</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Meter">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ChemistryUnity"/>
+    <rdfs:comment xml:lang="en">SI base unit of length.</rdfs:comment>
+    <rdfs:label xml:lang="en">meter</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/B3LYP">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Becke-Lee-Yang-Parr hybrid functional.</rdfs:comment>
+    <rdfs:label xml:lang="en">B3LYP</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/GrB97">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Grimme's parameterization of Becke 1997 functional.</rdfs:comment>
+    <rdfs:label xml:lang="en">B97</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/B97">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">The Becke 1997 hybrid functional.</rdfs:comment>
+    <rdfs:label xml:lang="en">B97</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/Becke88">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Becke 1988 exchange functional</rdfs:comment>
+    <rdfs:label xml:lang="en">Becke88</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/BLYP">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Becke-Lee-Yang-Parr functional.</rdfs:comment>
+    <rdfs:label xml:lang="en">BLYP</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/BP86">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Becke-Perdew86 functional.</rdfs:comment>
+    <rdfs:label xml:lang="en">BP86</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/Gill96">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Gill 1996 exchange functional.</rdfs:comment>
+    <rdfs:label xml:lang="en">Gill96</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/HCTH120">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Hamprecht-Cohen-Tozer-Handy GGA functional for 120 cases.</rdfs:comment>
+    <rdfs:label xml:lang="en">HCTH120</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/HCTH147">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Hamprecht-Cohen-Tozer-Handy GGA functional for 147 cases.</rdfs:comment>
+    <rdfs:label xml:lang="en">HCTH147</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/HCTH407">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Hamprecht-Cohen-Tozer-Handy GGA functional for 407 cases.</rdfs:comment>
+    <rdfs:label xml:lang="en">HCTH407</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/HCTH93">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Hamprecht-Cohen-Tozer-Handy 1993 GGA functional.</rdfs:comment>
+    <rdfs:label xml:lang="en">HCTH93</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/LYP">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Lee-Yang-Parr correlation functional</rdfs:comment>
+    <rdfs:label xml:lang="en">LYP</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/M05">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Minnesota (Truhlar) Functional 2005.</rdfs:comment>
+    <rdfs:label xml:lang="en">M05</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/M05-2X">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Minnesota (Truhlar) Version of Functional 5.</rdfs:comment>
+    <rdfs:label xml:lang="en">M05-2X</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/M06">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Minnesota (Truhlar) Functional 2006.</rdfs:comment>
+    <rdfs:label xml:lang="en">M06</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/M06-HF">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Minnesota (Truhlar) Version of Functional 2006.</rdfs:comment>
+    <rdfs:label xml:lang="en">M06-HF</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/M06-L">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Minnesota (Truhlar) Version of Functional 6.</rdfs:comment>
+    <rdfs:label xml:lang="en">M06-L</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/M06-X">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Minnesota (Truhlar) Version of Functional 6.</rdfs:comment>
+    <rdfs:label xml:lang="en">M06-X</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/M08-HX">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Minnesota (Truhlar) Version of Functional 2008.</rdfs:comment>
+    <rdfs:label xml:lang="en">M08-HX</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/M08-SO">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Minnesota (Truhlar) Version of Functional 2008.</rdfs:comment>
+    <rdfs:label xml:lang="en">M08-SO</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/M11">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Minnesota (Truhlar) Version of Functional 2011.</rdfs:comment>
+    <rdfs:label xml:lang="en">M11</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/M11-L">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Minnesota (Truhlar) Version of Functional 11.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Minnesota (Truhlar) Version of Functional 2011.</rdfs:comment>
+    <rdfs:label xml:lang="en">M11-L</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/M11-SO">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Minnesota (Truhlar) Version of Functional 2011.</rdfs:comment>
+    <rdfs:label xml:lang="en">M11-SO</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/MN12-L">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Minnesota Nonseparable (Truhlar) Version of Functional 12.</rdfs:comment>
+    <rdfs:label xml:lang="en">MN12-L</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/MN12-SX">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Minnesota Nonseparable (Truhlar) Version of Functional 12.</rdfs:comment>
+    <rdfs:label xml:lang="en">MN12-SX</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/OPTX">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Handy-Cohen exchange functional</rdfs:comment>
+    <rdfs:label xml:lang="en">OPTX</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/PBE">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Perdew-Burke-Ernzerhof functional.</rdfs:comment>
+    <rdfs:label xml:lang="en">PBE</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/PBE0">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Perdew-Burke-Ernzerhof hybrid functional.</rdfs:comment>
+    <rdfs:label xml:lang="en">PBE0</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/PBE96C">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Perdew-Burke-Ernzerhof 1996 correlation functional</rdfs:comment>
+    <rdfs:label xml:lang="en">PBE96C</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/PBE96X">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Perdew-Burke-Ernzerhof 1996 exchange functional.</rdfs:comment>
+    <rdfs:label xml:lang="en">PBE96X</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/Perdew86">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Perdew 1996 correlation functional</rdfs:comment>
+    <rdfs:label xml:lang="en">Perdew86</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/PW">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Perdew-Wang functional.</rdfs:comment>
+    <rdfs:label xml:lang="en">PW</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/PW91">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Perdew-Wang 1991 functional.</rdfs:comment>
+    <rdfs:label xml:lang="en">PW91</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/PW91C">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Perdew-Wang 1991 correlation functional</rdfs:comment>
+    <rdfs:label xml:lang="en">PW91C</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/PW91X">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Perdew-Wang 1991 exchange functional.</rdfs:comment>
+    <rdfs:label xml:lang="en">PW91X</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/PZ">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Perdew-Zunger functional.</rdfs:comment>
+    <rdfs:label xml:lang="en">PZ</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/PZ81">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Perdew-Zunger 1981 correlation functional</rdfs:comment>
+    <rdfs:label xml:lang="en">PZ81</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/Slater">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Slater exchange functional.</rdfs:comment>
+    <rdfs:label xml:lang="en">Slater</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/TPSS">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Tao-Perdew-Staroverov-Scuseria functional.</rdfs:comment>
+    <rdfs:label xml:lang="en">TPSS</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/TPSSh">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Tao-Perdew-Staroverov-Scuseria hybrid functional.</rdfs:comment>
+    <rdfs:label xml:lang="en">TPSSh</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/VWN">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Vosco-Wilks-Nusair functional.</rdfs:comment>
+    <rdfs:label xml:lang="en">VWN</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/VWN3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Vosco-Wilks-Nusair Formula 3 correlation functional</rdfs:comment>
+    <rdfs:label xml:lang="en">VWN3</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/gc/VWN5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/gc/DensityFunctional"/>
+    <rdfs:comment xml:lang="en">Vosco-Wilks-Nusair Formula 5 correlation functional</rdfs:comment>
+    <rdfs:label xml:lang="en">VWN5</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Ac">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Actinium</ns1:elementName>
+    <rdfs:label>Ac</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Ag">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Silver</ns1:elementName>
+    <rdfs:label>Ag</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Al">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Aluminium</ns1:elementName>
+    <rdfs:label>Al</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Am">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Americium</ns1:elementName>
+    <rdfs:label>Am</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Ar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Argon</ns1:elementName>
+    <rdfs:label>Ar</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/As">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Arsenic</ns1:elementName>
+    <rdfs:label>As</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/At">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Astatine</ns1:elementName>
+    <rdfs:label>At</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Au">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Gold</ns1:elementName>
+    <rdfs:label>Au</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/B">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Boron</ns1:elementName>
+    <rdfs:label>B</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Ba">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Barium</ns1:elementName>
+    <rdfs:label>Ba</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Be">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Beryllium</ns1:elementName>
+    <rdfs:label>Be</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Bh">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Bohrium</ns1:elementName>
+    <rdfs:label>Bh</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Bi">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Bismuth</ns1:elementName>
+    <rdfs:label>Bi</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Bk">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Berkelium</ns1:elementName>
+    <rdfs:label>Bk</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Br">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Bromine</ns1:elementName>
+    <rdfs:label>Br</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/C">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Carbon</ns1:elementName>
+    <rdfs:label>C</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Ca">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Calcium</ns1:elementName>
+    <rdfs:label>Ca</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Cd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Cadmium</ns1:elementName>
+    <rdfs:label>Cd</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Ce">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Cerium</ns1:elementName>
+    <rdfs:label>Ce</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Cf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Californium</ns1:elementName>
+    <rdfs:label>Cf</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Cl">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Chlorine</ns1:elementName>
+    <rdfs:label>Cl</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Cm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Curium</ns1:elementName>
+    <rdfs:label>Cm</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Cn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Copernicium</ns1:elementName>
+    <rdfs:label>Cn</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Co">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Cobalt</ns1:elementName>
+    <rdfs:label>Co</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Cr">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Chromium</ns1:elementName>
+    <rdfs:label>Cr</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Cs">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Caesium</ns1:elementName>
+    <rdfs:label>Cs</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Cu">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Copper</ns1:elementName>
+    <rdfs:label>Cu</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Db">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Dubnium</ns1:elementName>
+    <rdfs:label>Db</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Ds">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Darmstadtium</ns1:elementName>
+    <rdfs:label>Ds</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Dy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Dysprosium</ns1:elementName>
+    <rdfs:label>Dy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Er">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Erbium</ns1:elementName>
+    <rdfs:label>Er</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Es">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Einsteinium</ns1:elementName>
+    <rdfs:label>Es</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Eu">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Europium</ns1:elementName>
+    <rdfs:label>Eu</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/F">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Fluorine</ns1:elementName>
+    <rdfs:label>F</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Fe">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Iron</ns1:elementName>
+    <rdfs:label>Fe</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Fl">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Flerovium</ns1:elementName>
+    <rdfs:label>Fl</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Fm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Fermium</ns1:elementName>
+    <rdfs:label>Fm</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Fr">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Francium</ns1:elementName>
+    <rdfs:label>Fr</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Ga">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Gallium</ns1:elementName>
+    <rdfs:label>Ga</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Gd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Gadolinium</ns1:elementName>
+    <rdfs:label>Gd</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Ge">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Germanium</ns1:elementName>
+    <rdfs:label>Ge</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/H">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Hydrogen</ns1:elementName>
+    <rdfs:label>H</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/He">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Helium</ns1:elementName>
+    <rdfs:label>He</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Hf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Hafnium</ns1:elementName>
+    <rdfs:label>Hf</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Hg">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Mercury</ns1:elementName>
+    <rdfs:label>Hg</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Ho">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Holmium</ns1:elementName>
+    <rdfs:label>Ho</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Hs">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Hassium</ns1:elementName>
+    <rdfs:label>Hs</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/I">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Iodine</ns1:elementName>
+    <rdfs:label>I</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/In">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Indium</ns1:elementName>
+    <rdfs:label>In</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Ir">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Iridium</ns1:elementName>
+    <rdfs:label>Ir</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/K">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Potassium</ns1:elementName>
+    <rdfs:label>K</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Kr">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Krypton</ns1:elementName>
+    <rdfs:label>Kr</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/La">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Lanthanum</ns1:elementName>
+    <rdfs:label>La</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Li">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Lithium</ns1:elementName>
+    <rdfs:label>Li</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Lr">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Lawrencium</ns1:elementName>
+    <rdfs:label>Lr</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Lu">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Lutetium</ns1:elementName>
+    <rdfs:label>Lu</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Lv">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Livermorium</ns1:elementName>
+    <rdfs:label>Lv</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Mc">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Moscovium</ns1:elementName>
+    <rdfs:label>Mc</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Md">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Mendelevium</ns1:elementName>
+    <rdfs:label>Md</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Mg">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Magnesium</ns1:elementName>
+    <rdfs:label>Mg</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Mn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Manganese</ns1:elementName>
+    <rdfs:label>Mn</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Mo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Molybdenum</ns1:elementName>
+    <rdfs:label>Mo</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Mt">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Meitnerium</ns1:elementName>
+    <rdfs:label>Mt</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/N">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Nitrogen</ns1:elementName>
+    <rdfs:label>N</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Na">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Sodium</ns1:elementName>
+    <rdfs:label>Na</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Nb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Niobium</ns1:elementName>
+    <rdfs:label>Nb</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Nd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Neodymium</ns1:elementName>
+    <rdfs:label>Nd</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Ne">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Neon</ns1:elementName>
+    <rdfs:label>Ne</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Nh">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Nihonium</ns1:elementName>
+    <rdfs:label>Nh</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Ni">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Nickel</ns1:elementName>
+    <rdfs:label>Ni</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/No">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Nobelium</ns1:elementName>
+    <rdfs:label>No</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Np">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Neptunium</ns1:elementName>
+    <rdfs:label>Np</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/O">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Oxygen</ns1:elementName>
+    <rdfs:label>O</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Og">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Oganesson</ns1:elementName>
+    <rdfs:label>Og</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Os">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Osmium</ns1:elementName>
+    <rdfs:label>Os</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/P">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Phosphorus</ns1:elementName>
+    <rdfs:label>P</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Pa">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Protactinium</ns1:elementName>
+    <rdfs:label>Pa</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Pb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Lead</ns1:elementName>
+    <rdfs:label>Pb</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Pd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Palladium</ns1:elementName>
+    <rdfs:label>Pd</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Pm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Promethium</ns1:elementName>
+    <rdfs:label>Pm</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Po">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Polonium</ns1:elementName>
+    <rdfs:label>Po</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Pr">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Praseodymium</ns1:elementName>
+    <rdfs:label>Pr</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Pt">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Platinum</ns1:elementName>
+    <rdfs:label>Pt</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Pu">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Plutonium</ns1:elementName>
+    <rdfs:label>Pu</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Ra">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Radium</ns1:elementName>
+    <rdfs:label>Ra</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Rb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Rubidium</ns1:elementName>
+    <rdfs:label>Rb</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Re">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Rhenium</ns1:elementName>
+    <rdfs:label>Re</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Rf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Rutherfordium</ns1:elementName>
+    <rdfs:label>Rf</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Rg">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Roentgenium</ns1:elementName>
+    <rdfs:label>Rg</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Rh">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Rhodium</ns1:elementName>
+    <rdfs:label>Rh</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Rn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Radon</ns1:elementName>
+    <rdfs:label>Rn</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Ru">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Ruthenium</ns1:elementName>
+    <rdfs:label>Ru</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/S">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Sulfur</ns1:elementName>
+    <rdfs:label>S</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Sb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Antimony</ns1:elementName>
+    <rdfs:label>Sb</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Sc">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Scandium</ns1:elementName>
+    <rdfs:label>Sc</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Se">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Selenium</ns1:elementName>
+    <rdfs:label>Se</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Sg">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Seaborgium</ns1:elementName>
+    <rdfs:label>Sg</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Si">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Silicon</ns1:elementName>
+    <rdfs:label>Si</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Sm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Samarium</ns1:elementName>
+    <rdfs:label>Sm</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Sn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Tin</ns1:elementName>
+    <rdfs:label>Sn</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Sr">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Strontium</ns1:elementName>
+    <rdfs:label>Sr</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Ta">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Tantalum</ns1:elementName>
+    <rdfs:label>Ta</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Tb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Terbium</ns1:elementName>
+    <rdfs:label>Tb</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Tc">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Technetium</ns1:elementName>
+    <rdfs:label>Tc</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Te">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Tellurium</ns1:elementName>
+    <rdfs:label>Te</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Th">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Thorium</ns1:elementName>
+    <rdfs:label>Th</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Ti">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Titanium</ns1:elementName>
+    <rdfs:label>Ti</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Tl">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Thallium</ns1:elementName>
+    <rdfs:label>Tl</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Tm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Thulium</ns1:elementName>
+    <rdfs:label>Tm</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Ts">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Tennessine</ns1:elementName>
+    <rdfs:label>Ts</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/U">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Uranium</ns1:elementName>
+    <rdfs:label>U</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/V">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Vanadium</ns1:elementName>
+    <rdfs:label>V</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/W">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Tungsten</ns1:elementName>
+    <rdfs:label>W</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Xe">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Xenon</ns1:elementName>
+    <rdfs:label>Xe</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Y">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Yttrium</ns1:elementName>
+    <rdfs:label>Y</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Yb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Ytterbium</ns1:elementName>
+    <rdfs:label>Yb</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Zn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Zinc</ns1:elementName>
+    <rdfs:label>Zn</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Zr">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/ElementType"/>
+    <ns1:elementName>Zirconium</ns1:elementName>
+    <rdfs:label>Zr</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Joule">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/EnergyAndWorkUnity"/>
+    <rdfs:comment xml:lang="en">SI derived unit of energy and work.</rdfs:comment>
+    <rdfs:label xml:lang="en">joule</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/iochem/Hertz">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/iochem/FreqUnity"/>
+    <rdfs:comment xml:lang="en">SI derived unit of frequency.</rdfs:comment>
+    <rdfs:label xml:lang="en">hertz</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N045afcb0853844408166efb91a8b6870">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/iochem/unit"/>
+    <owl:hasValue rdf:resource="http://purl.org/iochem/Kilogram"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N146c439a181f4324a9d4db96a2eb9b6b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/iochem/unit"/>
+    <owl:hasValue rdf:resource="http://purl.org/iochem/Joule"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N236d04edf60b4eabae567e2ecb75f751">
+    <rdf:first rdf:resource="http://purl.org/iochem/hasSystemEnergy"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N50f9aadbdbb84b9a98701131eaea14f6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/iochem/unit"/>
+    <owl:hasValue rdf:resource="http://purl.org/iochem/Meter"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N59105104533548268d23aeb37ba1d6a4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/iochem/unit"/>
+    <owl:hasValue rdf:resource="http://purl.org/iochem/Joule"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5b3e6650c93b4108ad2a46209962417b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/iochem/unit"/>
+    <owl:hasValue rdf:resource="http://purl.org/iochem/Joule"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6d93f7da99c848c8add588bc04ae4ebb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/iochem/unit"/>
+    <owl:hasValue rdf:resource="http://purl.org/iochem/Joule"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7bb5a103846c4d0ab4c43fcdd3f7757b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/iochem/unit"/>
+    <owl:hasValue rdf:resource="http://purl.org/iochem/Joule"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7f5eae41d8ea4b4c8f3d0c21e6bf0c5e">
+    <rdf:first rdf:resource="http://purl.org/iochem/hasResult"/>
+    <rdf:rest rdf:nodeID="Nbd889b064d9a44369da7e39f7627bfa6"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8354aef23e40448d90ac8844a73f6c99">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/iochem/unit"/>
+    <owl:hasValue rdf:resource="http://purl.org/iochem/Joule"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9b667f7896ea4d0eafca8b45ffab8d03">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/iochem/unit"/>
+    <owl:hasValue rdf:resource="http://purl.org/iochem/Kilogram"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9cf86f98c3564a52b37e36eb514e452e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/iochem/unit"/>
+    <owl:hasValue rdf:resource="http://purl.org/iochem/Joule"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na123e68ed2c147e992b44bff9f95b1da">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/iochem/unit"/>
+    <owl:hasValue rdf:resource="http://purl.org/iochem/KilogramPerMole"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na29182b2c46340f495c72f33564fa1bb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/iochem/unit"/>
+    <owl:hasValue rdf:resource="http://purl.org/iochem/Joule"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na80838a966d94081b13e23d87fd0fcdc">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/iochem/unit"/>
+    <owl:hasValue rdf:resource="http://purl.org/iochem/Joule"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Naf077f136af54dcb9730d7ac6695a4ce">
+    <rdf:first rdf:resource="http://purl.org/iochem/hasCalculationResult"/>
+    <rdf:rest rdf:nodeID="N236d04edf60b4eabae567e2ecb75f751"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb8f5a2a831c64fdea3eefe7df2602acd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/iochem/unit"/>
+    <owl:hasValue rdf:resource="http://purl.org/iochem/JoulePerKelvin"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbd889b064d9a44369da7e39f7627bfa6">
+    <rdf:first rdf:resource="http://purl.org/iochem/describesMolecularSystem"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc28df61e8b724361a075a270aae98978">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/iochem/unit"/>
+    <owl:hasValue rdf:resource="http://purl.org/iochem/CoulombSquareMeterPerVolt"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc40759366f414c80b5d0b4e4f86cda1a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/iochem/unit"/>
+    <owl:hasValue rdf:resource="http://purl.org/iochem/CoulombMeter"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncdc7d2dc673544c08ef5ac355303b02e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/iochem/unit"/>
+    <owl:hasValue rdf:resource="http://purl.org/iochem/Coulomb"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#date">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+  </rdf:Description>
+  </rdf:RDF>

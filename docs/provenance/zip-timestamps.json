@@ -1,0 +1,448 @@
+{
+  "My_Cmaps.zip": [
+    {
+      "path": "My_Cmaps/cc_conceptual_map.cmap",
+      "zip_datetime_no_timezone": [
+        2026,
+        10,
+        20,
+        11,
+        9,
+        0
+      ],
+      "extra_hex": "",
+      "size": 74239
+    },
+    {
+      "path": "My_Cmaps/.cmapthumbs/22Y33S38T-CW8VG6-7Z.gif",
+      "zip_datetime_no_timezone": [
+        2026,
+        10,
+        20,
+        11,
+        9,
+        0
+      ],
+      "extra_hex": "",
+      "size": 1742
+    },
+    {
+      "path": "My_Cmaps/.temp/",
+      "zip_datetime_no_timezone": [
+        2026,
+        10,
+        20,
+        11,
+        9,
+        0
+      ],
+      "extra_hex": "",
+      "size": 0
+    },
+    {
+      "path": "My_Cmaps/cc_conceptual_map/cmap",
+      "zip_datetime_no_timezone": [
+        2026,
+        10,
+        20,
+        11,
+        9,
+        0
+      ],
+      "extra_hex": "",
+      "size": 411196
+    },
+    {
+      "path": "My_Cmaps/cc_conceptual_map/project.idx",
+      "zip_datetime_no_timezone": [
+        2026,
+        10,
+        20,
+        11,
+        9,
+        0
+      ],
+      "extra_hex": "",
+      "size": 2675
+    },
+    {
+      "path": "My_Cmaps/cc_conceptual_map (2)/cmap",
+      "zip_datetime_no_timezone": [
+        2026,
+        10,
+        20,
+        11,
+        9,
+        0
+      ],
+      "extra_hex": "",
+      "size": 411196
+    },
+    {
+      "path": "My_Cmaps/cc_conceptual_map (2)/project.idx",
+      "zip_datetime_no_timezone": [
+        2026,
+        10,
+        20,
+        11,
+        9,
+        0
+      ],
+      "extra_hex": "",
+      "size": 2681
+    },
+    {
+      "path": "My_Cmaps/project.idx",
+      "zip_datetime_no_timezone": [
+        2026,
+        10,
+        20,
+        11,
+        9,
+        0
+      ],
+      "extra_hex": "",
+      "size": 4835
+    }
+  ],
+  "OneDrive_1_05-11-2026.zip": [
+    {
+      "path": "CML_Gaussian.xsl",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 87139
+    },
+    {
+      "path": "gaussian-tags.txt",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 4733
+    },
+    {
+      "path": "getTags.sh",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 1331
+    },
+    {
+      "path": "onto_iochem (1).owl",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 26225
+    },
+    {
+      "path": "onto_iochem (2).owl",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 22897
+    },
+    {
+      "path": "onto_iochem (3).owl",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 57189
+    },
+    {
+      "path": "onto_iochem (4).owl",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 61035
+    },
+    {
+      "path": "onto_iochem.owl",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 272447
+    },
+    {
+      "path": "onto_iochem_v2.owl",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 89450
+    },
+    {
+      "path": "onto_iochem_v3.owl",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 125037
+    },
+    {
+      "path": "OntoIochem_Minimum_Ontology_Manual_v11.md",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 41224
+    },
+    {
+      "path": "ontoiochem_v10.owl",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 135768
+    },
+    {
+      "path": "ontoiochem_v11.owl",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 137593
+    },
+    {
+      "path": "ontoiochem_v11.rdf",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 137593
+    },
+    {
+      "path": "ontoiochem_v4.owl",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 123803
+    },
+    {
+      "path": "ontoiochem_v6.owl",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 131759
+    },
+    {
+      "path": "ontoiochem_v8.owl",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 137129
+    },
+    {
+      "path": "ontoiochem_v9.rdf",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 118448
+    },
+    {
+      "path": "Ontology_ref_30.xlsx",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 35287
+    },
+    {
+      "path": "orca-tags.txt",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 2491
+    },
+    {
+      "path": "orientacoes\uff1c-visual.txt",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 4284
+    },
+    {
+      "path": "searchTag.sh",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 768
+    },
+    {
+      "path": "tag_explorer_v2.py",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 14276
+    },
+    {
+      "path": "tag_explorer_v4.py",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 32066
+    },
+    {
+      "path": "tag_explorer_v5_demo.py",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 22681
+    },
+    {
+      "path": "tag_explorer_v5_export.py",
+      "zip_datetime_no_timezone": [
+        2026,
+        11,
+        4,
+        23,
+        20,
+        0
+      ],
+      "extra_hex": "",
+      "size": 6528
+    }
+  ]
+}

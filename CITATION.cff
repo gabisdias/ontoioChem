@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this ontology, please cite it as below."
+title: "OntoIochem: a minimum viable ontology for the ioChem-BD semantic layer"
+type: software
+version: "v11"
+authors:
+  - family-names: "Dias da Silva"
+    given-names: "Gabriela"
